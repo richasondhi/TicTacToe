@@ -52,6 +52,13 @@ public class TicTacToeGameTest {
         game.play(1, 1);
         assertEquals('O', game.nextPlayer());
     }
+/*If no winning condition then no winner*/
+    @Test
+    public void whenPlayThenNoWinner()
+    {
+        String actual = game.play(1,1);
+        assertEquals("No winner", actual);
+    }
    /* @Test(expected = RuntimeException.class)
     public void whenXOutsideBoardException() {
         game.printBoard(new char[4][2]);
