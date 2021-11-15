@@ -20,12 +20,30 @@ public class TicTacToeGame {
         checkAxis(y);
         lastPlayer = nextPlayer();
         setBox(x, y, lastPlayer);
-        if (isWin()) {
+        if (isWin())
+        {
             return lastPlayer + " is the winner";
+        } else if (isDraw())
+        {
+            return "The result is draw";
         }
-        return "No winner";
+        else
+          {
+              return "No winner";
+          }
     }
 
+
+    public boolean isDraw() {
+        for (int x = 0; x < SIZE; x++) {
+            for (int y = 0; y < SIZE; y++) {
+                if (board[x][y] == '\0') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     private void checkAxis(int axis) {
         if (axis < 1 || axis > 3) {
             throw new RuntimeException("X is outside board");
