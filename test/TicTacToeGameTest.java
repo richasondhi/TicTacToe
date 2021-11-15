@@ -18,12 +18,21 @@ public class TicTacToeGameTest {
     public ExpectedException exception =ExpectedException.none();
 
 
-    /*When a player turn is placed anywhere outside the X axis, then RuntimeException is thrown*/
+    /*When a player turn is placed anywhere outside the X axis, then RuntimeException is thrown as grid is of 3x3*/
     @Test(expected = RuntimeException.class)
     public void whenXOutsideBoardThenRuntimeException()
     {
         game.play(5, 2);
     }
+
+    /*When a player turn is placed anywhere outside the Y axis, then RuntimeException is thrown as grid is of 3x3*/
+    @Test
+    public void whenYOutsideBoardThenRuntimeException()
+    {
+        exception.expect(RuntimeException.class);
+        game.play(2, 5);
+    }
+
    /* @Test(expected = RuntimeException.class)
     public void whenXOutsideBoardException() {
         game.printBoard(new char[4][2]);
