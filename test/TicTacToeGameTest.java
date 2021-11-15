@@ -60,7 +60,7 @@ public class TicTacToeGameTest {
         String actual = game.play(2,3);
         assertEquals("No winner", actual);
     }
-    /* Check if there is a win by Horizontal line */
+    /* Check if there is a win by Horizontal line
     @Test public void whenPlayAndWholeHorizontalLineThenWinner() {
         game.play(1, 1); // X
         game.play(1, 2); // O
@@ -68,7 +68,7 @@ public class TicTacToeGameTest {
         game.play(2, 2); // O
         String actual = game.play(3, 1);// X
         assertEquals("X is the winner", actual);
-    }
+    }*/
     /* Check if there is a win by Vertical line */
     @Test public void whenPlayAndWholeVerticalLineThenWinner() {
         game.play(2, 1);  // X
@@ -79,6 +79,7 @@ public class TicTacToeGameTest {
         String actual = game.play(1, 3); // O
         assertEquals("O is the winner", actual);
     }
+
 
    /* @Test(expected = RuntimeException.class)
     public void whenXOutsideBoardException() {
