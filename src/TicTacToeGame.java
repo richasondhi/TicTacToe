@@ -41,16 +41,25 @@ public class TicTacToeGame {
     }
 
     /* Winning Condition */
-    private boolean isWin() {
+    public boolean isWin()
+    {
         int playerTotal = lastPlayer * 3;
-        for (int i = 0; i < SIZE; i++) {
-            if (board[0][i] + board[1][i] + board[2][i] == playerTotal) {
+        for (int i = 0; i < SIZE; i++)
+        {
+            if (board[0][i] + board[1][i] + board[2][i] ==playerTotal)
+            {
                 return true;
-            } else if (playerTotal == '\0' ) {
+            }
+            else if (playerTotal == '\0')
+            {
                 return true;
             }
         }
-    return false;
+        if ((board[0][0] + board[1][1] + board[2][2])== playerTotal)
+        {
+            return true;
+        }
+        return false;
 }
 
     public char nextPlayer() {
