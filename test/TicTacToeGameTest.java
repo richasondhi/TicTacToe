@@ -32,7 +32,14 @@ public class TicTacToeGameTest {
         exception.expect(RuntimeException.class);
         game.play(2, 5);
     }
-
+    /*When a player turn is placed on already occupied grid in Board, then RuntimeException is thrown */
+    @Test
+    public void whenOccupiedThenRuntimeException()
+    {
+        game.play(2, 1);
+        exception.expect(RuntimeException.class);
+        game.play(2, 1);
+    }
    /* @Test(expected = RuntimeException.class)
     public void whenXOutsideBoardException() {
         game.printBoard(new char[4][2]);
