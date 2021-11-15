@@ -56,9 +56,18 @@ public class TicTacToeGameTest {
     @Test
     public void whenPlayThenNoWinner()
     {
-        String actual = game.play(1,1);
+        String actual = game.play(1,2);
         assertEquals("No winner", actual);
     }
+    @Test public void whenPlayAndWholeHorizontalLineThenWinner() {
+        game.play(1, 1);// X
+        game.play(1, 2); // O
+        game.play(2, 1); // X
+        game.play(2, 2); // O
+        String actual = game.play(3, 1);// X
+        assertEquals("X is the winner", actual);
+    }
+
    /* @Test(expected = RuntimeException.class)
     public void whenXOutsideBoardException() {
         game.printBoard(new char[4][2]);
