@@ -101,6 +101,20 @@ public class TicTacToeGameTest {
         String actual = game.play(3, 1); // O
         assertEquals("X is the winner", actual);
     }
+    /* Check if in case there is a Draw  condition */
+    @Test
+    public void whenAllBoxesAreFilledThenDraw()
+    {
+        game.play(1, 1);
+        game.play(1, 2);
+        game.play(1, 3);
+        game.play(2, 1);
+        game.play(2, 3);
+        game.play(2, 2);
+        game.play(3, 1);
+        game.play(3, 3);
+        String actual = game.play(3, 2);
+        assertEquals("The result is draw", actual); }
 
    /* @Test(expected = RuntimeException.class)
     public void whenXOutsideBoardException() {
