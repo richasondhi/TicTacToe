@@ -36,9 +36,9 @@ public class TicTacToeGameTest {
     @Test
     public void whenOccupiedThenRuntimeException()
     {
-        game.play(2, 1);
+        game.play(3, 3);
         exception.expect(RuntimeException.class);
-        game.play(2, 1);
+        game.play(3, 3);
     }
    /*First player turn X */
     @Test
@@ -49,14 +49,15 @@ public class TicTacToeGameTest {
     /*Second player turn O */
     @Test
     public void givenLastTurnWasXWhenNextPlayerThenO() {
-        game.play(1, 1);
+        game.play(3, 2);
         assertEquals('O', game.nextPlayer());
     }
+
 /*If no winning condition then no winner*/
     @Test
     public void whenPlayThenNoWinner()
     {
-        String actual = game.play(1,2);
+        String actual = game.play(2,3);
         assertEquals("No winner", actual);
     }
     @Test public void whenPlayAndWholeHorizontalLineThenWinner() {

@@ -5,7 +5,8 @@ public class TicTacToeGame {
    static char[][] board = {{'\0', '\0', '\0'},
                       {'\0', '\0', '\0'}
                       , {'\0', '\0', '\0'}};
-     char lastPlayer = '\0';
+    char lastPlayer = '\0';
+    private static final int SIZE = 3;
     public static void main(String[] args) {
 
 
@@ -17,8 +18,12 @@ public class TicTacToeGame {
     {
         checkAxis(x);
         checkAxis(y);
-        setBox(x, y);
         lastPlayer = nextPlayer();
+        setBox(x, y, lastPlayer);
+        if (isWin())
+        {
+            return lastPlayer + " is the winner";
+        }
         return "No winner";
     }
     private void checkAxis(int axis)
@@ -29,12 +34,27 @@ public class TicTacToeGame {
         }
     }
 
-    private void setBox(int x, int y) {
-        if (board[x - 1][y - 1] != '\0') {
-            throw new RuntimeException ("Box is occupied! Not a valid move");
-        } else {
-            board[x - 1][y - 1] = 'X';
+    public void setBox(int x, int y, char lastPlayer)
+    {
+        if (board[x - 1][y - 1] != '\0')
+        {
+            throw new RuntimeException("Box is occupied");
+        } else
+            {
+                board[x - 1][y - 1] = lastPlayer;
+            }
+    }
+    /* Winning Condition */
+    public boolean isWin()
+    {
+        for (int i = 0; i < SIZE; i++)
+        {
+            if (board[0][i] + board[1][i] + board[2][i]== (lastPlayer * SIZE))
+            {
+                return true;
+            }
         }
+        return false;
     }
 
     public char nextPlayer() {
