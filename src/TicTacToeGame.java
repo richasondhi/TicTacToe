@@ -3,14 +3,18 @@ import java.util.Scanner;
 public class TicTacToeGame {
 
     public static void main(String[] args) {
+
        char[][] board = {{' ', ' ', ' '},
                 {' ', ' ', ' '},
                 {' ', ' ', ' '}};
 
         printBoard(board);
 
+    }
+    public void play(int x, int y) {
 
     }
+
     public static void printBoard(char[][] board) {
         System.out.println(board[0][0] + "|" +  board[0][1] + "|" +  board[0][2] );
         System.out.println("-----");
