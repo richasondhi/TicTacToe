@@ -40,6 +40,13 @@ public class TicTacToeGameTest {
         exception.expect(RuntimeException.class);
         game.play(2, 1);
     }
+/*First player turn X */
+    @Test
+    public void givenFirstTurnWhenNextPlayerThenX()
+    {
+        assertEquals('X', game.nextPlayer());
+    }
+
    /* @Test(expected = RuntimeException.class)
     public void whenXOutsideBoardException() {
         game.printBoard(new char[4][2]);
