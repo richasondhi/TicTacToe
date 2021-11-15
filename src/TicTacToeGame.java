@@ -34,6 +34,10 @@ public class TicTacToeGame {
             board[x - 1][y - 1] = 'X';
         }
     }
+    public char nextPlayer()
+    {
+        return 'X';
+    }
 
     public static void printBoard(char[][] board) {
         System.out.println(board[0][0] + "|" +  board[0][1] + "|" +  board[0][2] );
