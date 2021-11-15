@@ -2,11 +2,13 @@ import java.util.Scanner;
 
 public class TicTacToeGame {
 
+   static char[][] board = {{'\0', '\0', '\0'},
+                      {'\0', '\0', '\0'}
+                      , {'\0', '\0', '\0'}};
+
     public static void main(String[] args) {
 
-       char[][] board = {{' ', ' ', ' '},
-                {' ', ' ', ' '},
-                {' ', ' ', ' '}};
+
 
         printBoard(board);
 
@@ -20,6 +22,14 @@ public class TicTacToeGame {
         {
             throw new RuntimeException("Y is outside board");
         }
+        if (board[x - 1][y - 1] != '\0')
+        {
+            throw new RuntimeException("Box is occupied! Not a valid move");
+        }
+        else
+            {
+                board[x - 1][y - 1] = 'X';
+            }
     }
 
     public static void printBoard(char[][] board) {
