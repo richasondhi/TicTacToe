@@ -12,7 +12,10 @@ public class TicTacToeGame {
 
     }
     public void play(int x, int y) {
-
+        /*As board is of grid 3x3 */
+        if (x < 1 || x > 3) {
+            throw new RuntimeException("X is outside board");
+        }
     }
 
     public static void printBoard(char[][] board) {
