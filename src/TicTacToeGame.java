@@ -16,6 +16,10 @@ public class TicTacToeGame {
         if (x < 1 || x > 3) {
             throw new RuntimeException("X is outside board");
         }
+        else if (y < 1 || y > 3)
+        {
+            throw new RuntimeException("Y is outside board");
+        }
     }
 
     public static void printBoard(char[][] board) {
