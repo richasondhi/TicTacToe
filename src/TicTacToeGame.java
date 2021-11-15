@@ -13,12 +13,13 @@ public class TicTacToeGame {
         printBoard(board);
 
     }
-    public void play(int x, int y)
+    public String play(int x, int y)
     {
         checkAxis(x);
         checkAxis(y);
         setBox(x, y);
         lastPlayer = nextPlayer();
+        return "No winner";
     }
     private void checkAxis(int axis)
     {
