@@ -1,13 +1,13 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-
 import static org.junit.Assert.assertEquals;
 
 public class TicTacToeGameTest {
-    private TicTacToeGame game;
+    public TicTacToeGame game;
 
     @Before
     public void setUp() {
@@ -32,13 +32,15 @@ public class TicTacToeGameTest {
         exception.expect(RuntimeException.class);
         game.play(2, 5);
     }
-    /*When a player turn is placed on already occupied grid in Board, then RuntimeException is thrown */
+    /*When a player turn is placed on already occupied grid in Board, then run the play a No Winner string   is thrown as its position is already occupied */
     @Test
     public void whenOccupiedThenRuntimeException()
     {
         game.play(3, 3);
-        exception.expect(RuntimeException.class);
-        game.play(3, 3);
+        //exception.expect(RuntimeException.class);
+        String isGameFinished= game.play(3, 3);
+        assertEquals("No Winner", isGameFinished);
+
     }
    /*First player turn X */
     @Test
@@ -58,7 +60,7 @@ public class TicTacToeGameTest {
     public void whenPlayThenNoWinner()
     {
         String actual = game.play(2,3);
-        assertEquals("No winner", actual);
+        assertEquals("No Winner", actual);
     }
     /* Check if there is a win by Horizontal line */
     @Test public void whenPlayAndWholeHorizontalLineThenWinner() {
@@ -67,7 +69,7 @@ public class TicTacToeGameTest {
         game.play(2, 1); // X
         game.play(2, 2); // O
         String actual = game.play(3, 1);// X
-        assertEquals("X is the winner", actual);
+        assertEquals("O is the Winner", actual);
     }
     /* Check if there is a win by Vertical line */
     @Test
@@ -78,7 +80,7 @@ public class TicTacToeGameTest {
         game.play(1, 2); // O
         game.play(2, 2); // X
         String actual = game.play(1, 3); // O
-        assertEquals("O is the winner", actual);
+        assertEquals("X is the Winner", actual);
     }
     /* Check if there is a win by Diagonal line from top left to bottam right */
     @Test
@@ -88,7 +90,7 @@ public class TicTacToeGameTest {
         game.play(2, 2);   // X
         game.play(1, 3);   // O
         String actual = game.play(3, 3); // O
-         assertEquals("X is the winner", actual);
+         assertEquals("X is the Winner", actual);
     }
     /* Check if there is a win by Diagonal line  from bottam left to top right*/
     @Test
@@ -98,8 +100,8 @@ public class TicTacToeGameTest {
         game.play(1, 1);  // O
         game.play(2, 2);  // X
         game.play(1, 2);  // O
-        String actual = game.play(3, 1); // O
-        assertEquals("X is the winner", actual);
+        String actual = game.play(3, 1); // o
+        assertEquals("O is the Winner", actual);
     }
     /* Check if in case there is a Draw  condition */
     @Test
@@ -114,7 +116,7 @@ public class TicTacToeGameTest {
         game.play(3, 1);
         game.play(3, 3);
         String actual = game.play(3, 2);
-        assertEquals("The result is draw", actual); }
+        assertEquals("The result is Draw", actual); }
 
    /* @Test(expected = RuntimeException.class)
     public void whenXOutsideBoardException() {
